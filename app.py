@@ -5,12 +5,26 @@ import plotly.express as px
 # --- Load Data ---
 raw_city_df = pd.read_csv("city_data.csv")
 
-cityNames_df = raw_city_df["City"].str.replace('"','',regex=False)
+cityNames_df = raw_city_df["City"].str.replace('"', '', regex=False)
 lat_df = raw_city_df["Lat"]
 lon_df = raw_city_df["Lon"]
-month_order = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
-month_df = pd.Categorical(raw_city_df["Month"], categories=month_order, ordered=True)
-month_df = raw_city_df["Month"]
+month_order = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+]
+month_df = pd.Categorical(
+    raw_city_df["Month"], categories=month_order, ordered=True
+)
 monthHeatData_df = raw_city_df["MonthHeat"]
 monthColdData_df = raw_city_df["MonthCold"]
 monthWaterData_df = raw_city_df["MonthWater"]
